@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>POOPOOPLLAMA</title>
+		<script type="text/javascript">
+			var color = false;
+			var delta = 0;
+
+			function SwapColor() {
+				var body = document.getElementById('body');
+				var header = document.getElementById('header');
+				body.style.backgroundColor = (color ? 'black' : 'white');
+				header.style.color = (color ? 'white' : 'black');
+				color = !color;
+			}
+
+			function UpdateDelta() {
+				console.log('here');
+				var body = document.getElementById('body');
+				var header = document.getElementById('header');
+				var c = Math.cos(delta / 4.0 - Math.PI / 12.0);
+				var s = Math.sin(delta / 4.0 - Math.PI / 12.0);
+				var scale = delta / Math.PI;
+				header.style.transformOrigin = '50% 50%';
+				header.style.transform = 'matrix(' + c + ',' + s + ',' + -s + ',' + c + ',0,0)';
+				delta = (delta + 0.1) % Math.PI;
+			}
+			
+			var colorInterval = setInterval(SwapColor, 100);
+			var updateInterval = setInterval(UpdateDelta, 10);
+		</script>
+		<style type="text/css">
+			body {
+				font-family: Arial;
+				margin: 0;
+				padding: 0;
+				padding-top: 25%;
+			}
+			h1#header {
+				width: 100%;
+				text-align: center;
+				font-size: 80pt;
+				padding: 0;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body id="body">
+		<h1 id="header">OH MY GOD POOPOOPLLAMA</h1>
+	</body>
+</html>
